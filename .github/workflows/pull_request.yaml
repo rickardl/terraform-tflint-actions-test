@@ -1,0 +1,11 @@
+on: pull_request
+name: tflint action
+jobs:
+  lint:
+    name: Terraform Lint on PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: rickardl/tflint-action@v1.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
